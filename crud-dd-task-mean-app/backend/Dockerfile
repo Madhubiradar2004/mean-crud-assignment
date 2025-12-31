@@ -2,13 +2,16 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Install dependencies first (better caching)
 COPY package*.json ./
-RUN npm install --production
+RUN npm install --only=production
 
+# Copy app source
 COPY . .
 
-# If your backend uses another port, change this
+# Backend runs on port 3000
 EXPOSE 3000
 
-# Uses "npm start" from package.json
+# Start the server
 CMD ["npm", "start"]
+
