@@ -38,8 +38,3 @@ services:
 
 volumes:
   mongo_data:
-
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-
-volumes:
-  mongo_data:
